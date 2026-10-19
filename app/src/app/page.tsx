@@ -66,21 +66,21 @@ const benefits = [
     title: "Perawatan Ban",
     description:
       "Bantu merawat tampilan ban agar terlihat lebih bersih dan terawat.",
-    image: "/1.png"
+    image: "/1.png",
   },
   {
     number: "02",
     title: "Praktis Digunakan",
     description:
       "Pilihan praktis untuk perawatan tampilan ban kendaraan sehari-hari.",
-    image: "2.png"
-    },
+    image: "2.png",
+  },
   {
     number: "03",
     title: "Perawatan Rutin",
     description:
       "Lengkapi rutinitas perawatan kendaraan dengan Tyre Polish MAX Auto Care.",
-    image: "3.png"
+    image: "3.png",
   },
 ];
 
@@ -158,11 +158,17 @@ export default function Home() {
               kendaraan. Praktis untuk perawatan tampilan mobil sehari-hari.
             </p>
 
+            <div className="mt-5 flex flex-wrap gap-2 text-sm font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-2 text-green-400">
+                ✓ Bisa Bayar COD
+              </span>
+            </div>
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <OrderButton className="sm:flex-1">ORDER SEKARANG</OrderButton>
 
               <OrderButton platform="shopee" className="sm:flex-1">
-                CHECKOUT SHOPEE
+                CHECKOUT DI SHOPEE
               </OrderButton>
             </div>
 
@@ -255,10 +261,10 @@ export default function Home() {
                   {benefit.number}
                 </span>
                 <img
-                    src={benefit.image}
-                    loading="lazy"
-                    className="aspect-[4/3] w-full rounded-xl object-contain transition duration-300 group-hover:scale-[1.03]"
-                  />
+                  src={benefit.image}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full rounded-xl object-contain transition duration-300 group-hover:scale-[1.03]"
+                />
 
                 <h3 className="mt-5 text-xl font-bold">{benefit.title}</h3>
 
@@ -353,7 +359,7 @@ export default function Home() {
               <div className="mt-6 flex flex-col gap-3">
                 <OrderButton>ORDER SEKARANG</OrderButton>
 
-                <OrderButton platform="shopee">CHECKOUT SHOPEE</OrderButton>
+                <OrderButton platform="shopee">CHECKOUT DI SHOPEE</OrderButton>
               </div>
 
               <p className="mt-4 text-center text-xs leading-5 text-zinc-500">
@@ -429,7 +435,9 @@ export default function Home() {
           </div>
 
           <div className="grid min-w-0 flex-1 grid-cols-2 gap-2">
-            <OrderButton className="px-2 py-3 text-[10px]">ORDER SEKARANG</OrderButton>
+            <OrderButton className="px-2 py-3 text-[10px]">
+              ORDER SEKARANG
+            </OrderButton>
 
             <OrderButton platform="shopee" className="px-2 py-3 text-[10px]">
               BELI DI SHOPEE
