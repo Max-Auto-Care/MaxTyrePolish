@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { trackMetaEvent } from "./MetaPixel";
+import CountdownTimer from "./CountdownTimer";
 
 const CHECKOUT_URL = "https://maxautocare.orderonline.id/max-tyre-polish";
 const SHOPEE_URL = "https://shopee.co.id/product/136980590/28734579509/";
@@ -162,6 +163,10 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-2 text-green-400">
                 ✓ Bisa Bayar COD
               </span>
+            </div>
+
+            <div className="mt-5 flex flex-wrap">
+              <CountdownTimer placement="top" />
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -356,9 +361,12 @@ export default function Home() {
                 Harga promo Tyre Polish MAX Auto Care.
               </p>
 
+              <div className="mt-5 flex flex-wrap">
+                <CountdownTimer placement="top" />
+              </div>
+
               <div className="mt-6 flex flex-col gap-3">
                 <OrderButton>ORDER SEKARANG</OrderButton>
-
                 <OrderButton platform="shopee">CHECKOUT DI SHOPEE</OrderButton>
               </div>
 
@@ -434,17 +442,21 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="mt-5 flex flex-wrap">
+            <CountdownTimer placement="top" />
+          </div>
+
           <div className="grid min-w-0 flex-1 grid-cols-2 gap-2">
             <OrderButton className="px-2 py-3 text-[10px]">
               ORDER SEKARANG
             </OrderButton>
-
             <OrderButton platform="shopee" className="px-2 py-3 text-[10px]">
               BELI DI SHOPEE
             </OrderButton>
           </div>
         </div>
       </div>
+      <CountdownTimer placement="bottom" />
     </main>
   );
 }
