@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const DURATION_SECONDS = 5 * 60 * 60;
 const STORAGE_KEY = "max_bundle_promo_remaining_v1";
-const CHECKOUT_URL = "https://tyrepolish.maxautocare.biz.id/";
+const CHECKOUT_URL = "https://maxautocare.orderonline.id/max-tyre-polish";
 
 type CountdownTimerProps = {
   placement?: "top" | "bottom";

@@ -15,21 +15,23 @@ function formatPrice(price: number) {
   return `Rp${price.toLocaleString("id-ID")}`;
 }
 
+type OrderButtonProps = {
+  platform?: "orderonline" | "shopee";
+  className?: string;
+  children?: React.ReactNode;
+};
+
 function OrderButton({
   platform = "orderonline",
   className = "",
   children,
-}: {
-  platform?: "orderonline" | "shopee";
-  className?: string;
-  children?: React.ReactNode;
-}) {
+}: OrderButtonProps) {
   const isShopee = platform === "shopee";
+  const url = isShopee ? SHOPEE_URL : CHECKOUT_URL;
 
-  function handleOrder() {
-    const url = isShopee ? SHOPEE_URL : CHECKOUT_URL;
-
+  const handleOrder = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (!url || url.startsWith("GANTI_DENGAN")) {
+      event.preventDefault();
       alert("Silakan masukkan link checkout produk terlebih dahulu.");
       return;
     }
@@ -37,27 +39,28 @@ function OrderButton({
     if (!isShopee) {
       trackMetaEvent("InitiateCheckout", {
         content_name: "MAX Auto Care Tyre Polish",
+        content_type: "product",
         currency: "IDR",
         value: PROMO_PRICE,
       });
     }
-
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
+  };
 
   return (
-    <button
-      type="button"
+    <a
+      href={url || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={handleOrder}
       className={`flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-sm font-extrabold transition duration-200 hover:-translate-y-0.5 ${
         isShopee
           ? "bg-[#EE4D2D] text-white hover:bg-[#D94326]"
           : "bg-[#dc2626] text-white hover:bg-[#b91c1c]"
-      } ${className}`}
+      } ${!isShopee ? "oo-link" : ""} ${className}`}
     >
       {children ?? (isShopee ? "CHECKOUT SHOPEE" : "ORDER SEKARANG")}
       <span aria-hidden="true">↗</span>
-    </button>
+    </a>
   );
 }
 
@@ -456,7 +459,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <CountdownTimer placement="bottom" />
     </main>
   );
 }
