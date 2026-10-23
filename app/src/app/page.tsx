@@ -445,10 +445,6 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-5 flex flex-wrap">
-            <CountdownTimer placement="top" />
-          </div>
-
           <div className="grid min-w-0 flex-1 grid-cols-2 gap-2">
             <OrderButton className="px-2 py-3 text-[10px]">
               ORDER SEKARANG
